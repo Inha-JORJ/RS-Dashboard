@@ -1,3 +1,35 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container>
+  <md-sidenav mode="open" opened="false" #navigation>
+
+    <div ngClass="user-header">
+      <div class="user-details">
+        <h5>Hello, {{user.displayName}}</h5>
+      </div>
+    </div>
+
+    <div ngClass="menu-group" *ngFor="let menuGroup of menu">
+      <h4 *ngIf="menuGroup.hasOwnProperty('path') && menuGroup.path !== ''; else headerWithoutPath">
+        <a href="{{menuGroup.path}}">{{menuGroup.name}}</a>
+      </h4>
+      <ng-template #headerWithoutPath><h4>{{menuGroup.name}}</h4></ng-template>
+
+      <md-nav-list *ngIf="menuGroup.hasOwnProperty('menu')">
+        <a md-line class="mat-list-item" *ngFor="let menuItem of menuGroup.menu" href="{{menuItem.path}}">
+          {{menuItem.name}}
+        </a>
+      </md-nav-list>
+    </div>
+
+  </md-sidenav>
+
+  <div class="my-content">
+    <md-toolbar class="app-toolbar">
+      <md-icon (click)="navigation.open()">menu</md-icon>
+      <span>Restaurant System</span>
+    </md-toolbar>
+
+    <h1>
+      {{title}}
+    </h1>
+  </div>
+</md-sidenav-container>

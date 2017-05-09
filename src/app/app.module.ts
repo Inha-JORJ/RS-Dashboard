@@ -6,17 +6,22 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as Material from '@angular/material';
+import { AddproductComponent } from './views/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    Material.MdSidenavModule
+    Material.MdSidenavModule,
+    Material.MdToolbarModule,
+    Material.MdIconModule,
+    Material.MdListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
