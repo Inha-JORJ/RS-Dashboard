@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$rs-app-primary: mat-palette($mat-green);
+$rs-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$rs-app-warn: mat-palette($mat-deep-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$rs-app-theme: mat-light-theme($rs-app-primary, $rs-app-accent, $rs-app-warn);
+
+
+$grid-square-width: 56px;
+$grid-square-height: 56px;
+
+$layout: (
+  "padding": 16px,
+);
+
+@for $i from 1 through 10 {
+  $layout: map_merge($layout, (
+    $i+"x-width": $grid-square-width * $i,
+    $i+"x-height": $grid-square-height * $i,
+  ));
+}

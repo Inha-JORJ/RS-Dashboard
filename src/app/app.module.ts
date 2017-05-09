@@ -30,6 +30,10 @@ import {routing} from "./app.routing";
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    Material.MdSidenavModule,
+    Material.MdToolbarModule,
+    Material.MdIconModule,
+    Material.MdListModule,
     routing,
 
     Material.MdSidenavModule,

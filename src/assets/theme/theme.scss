@@ -1,0 +1,81 @@
+@mixin customize-navigation-menu($theme, $layout) {
+  $primary: map_get($theme, primary);
+
+  .mat-sidenav {
+    //padding: map_get($layout, "padding");
+    min-width: map_get($layout, "6x-width");
+
+    .user-header {
+      height: map_get($layout, "3x-height");
+      position: relative;
+      background: mat-color($primary, lighter);
+      margin-bottom: 8px;
+
+      .user-details {
+        padding: 16px;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    .menu-group {
+      padding: 8px;
+
+      h5 {
+        font-size: 1em;
+      }
+    }
+
+    md-nav-list {
+      margin-left: 8px;
+
+      a[md-line] {
+        padding: 8px;
+        font-size: 0.9em;
+
+        &:hover {
+          $foreground: map_get($theme, foreground);
+          $foreground-base: map_get($foreground, base);
+
+          background-color: rgba($foreground-base, $mat-ripple-color-opacity);
+        }
+      }
+    }
+  }
+}
+
+@mixin create-default-style($theme) {
+  * {
+    margin: 0;
+  }
+
+  html, body, app-root, md-sidenav-container, .my-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-weight: 400;
+      font-size: (1 + 0.7 - ($i * 0.1))+em;
+    }
+  }
+
+  a {
+    color: mat-color(map_get($theme, 'accent'), default);
+
+    &:hover {
+      color: mat-color(map_get($theme, 'accent'), darker);
+    }
+
+    &:active, &:visited {
+      color: mat-color(map_get($theme, 'accent'), lighter);
+    }
+  }
+
+}

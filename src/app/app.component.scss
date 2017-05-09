@@ -1,0 +1,9 @@
+@import "../assets/theme/variables";
+@import "../assets/theme/theme";
+
+.app-toolbar {
+  background-color: map-get($rs-app-primary, default);
+  color: white;
+}
+
+@include customize-navigation-menu($rs-app-theme, $layout)
