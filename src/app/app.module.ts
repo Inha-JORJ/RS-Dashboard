@@ -6,23 +6,20 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as Material from '@angular/material';
-import {UserComponent} from './user/user.component';
-import {ProductComponent} from './product/product.component';
+import {ProductComponent} from './views/product/product.component';
 import {CategoryComponent} from './category/category.component';
 import {UserService} from './services/user.service';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {AuthenticationService} from './services/authentication.service';
-import {AlertService} from './services/alert.service';
-import {LoginComponent} from './user/login/login.component';
-import {routing} from "./app.routing";
+import {LoginComponent} from './views/user/login/login.component';
+import {routing} from './app.routing';
+import {ProductService} from './services/product.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     ProductComponent,
     CategoryComponent,
-    NotFoundComponent ,
+    NotFoundComponent,
     LoginComponent,
   ],
   imports: [
@@ -41,7 +38,7 @@ import {routing} from "./app.routing";
     Material.MdInputModule,
     Material.MdGridListModule,
   ],
-  providers: [UserComponent, UserService, AuthenticationService, AlertService],
+  providers: [UserService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

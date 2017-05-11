@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://frozen-dusk-44238.herokuapp.com/',
+  apiUrl: 'http://frozen-dusk-44238.herokuapp.com',
 };

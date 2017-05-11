@@ -9,7 +9,7 @@
 
     <div ngClass="menu-group" *ngFor="let menuGroup of menu">
       <h4 *ngIf="menuGroup.hasOwnProperty('path') && menuGroup.path !== ''; else headerWithoutPath">
-        <a href="{{menuGroup.path}}">{{menuGroup.name}}</a>
+        <a routerLink="{{menuGroup.path}}">{{menuGroup.name}}</a>
       </h4>
       <ng-template #headerWithoutPath><h4>{{menuGroup.name}}</h4></ng-template>
 
@@ -22,14 +22,20 @@
 
   </md-sidenav>
 
-  <div class="my-content">
+  <div ngClass="mdl-layout mdl-js-layout my-content">
     <md-toolbar class="app-toolbar">
       <md-icon (click)="navigation.open()">menu</md-icon>
       <span>Restaurant System</span>
     </md-toolbar>
 
-    <div class="container">
-      <router-outlet></router-outlet>
+    <div ngClass="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col"></div>
+        <div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp">
+          <router-outlet></router-outlet>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col"></div>
+      </div>
     </div>
   </div>
 </md-sidenav-container>
